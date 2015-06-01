@@ -78,15 +78,19 @@ public class LoginActivity extends FragmentActivity implements
 
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
+			L.i(LoginActivity.class, "=========bindXMPPService======000=====");
 			mXxService = ((XXService.XXBinder) service).getService();
 			mXxService.registerConnectionStatusCallback(LoginActivity.this);
+			L.i(LoginActivity.class, "=========bindXMPPService======111=====");
 			// 开始连接xmpp服务器
 		}
 
 		@Override
 		public void onServiceDisconnected(ComponentName name) {
+			L.i(LoginActivity.class, "=========bindXMPPService======222=====");
 			mXxService.unRegisterConnectionStatusCallback();
 			mXxService = null;
+			L.i(LoginActivity.class, "=========bindXMPPService======333=====");
 		}
 
 	};
